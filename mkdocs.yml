@@ -1,0 +1,30 @@
+site_name: PythonTemplate
+
+theme:
+  name: "readthedocs"
+
+plugins:
+- search
+- autorefs
+- mkdocstrings:
+    handlers:
+      python:
+        show_signature_annotations: True
+        paths: [src]
+- mermaid2
+
+watch:
+  - src
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      # make exceptions to highlighting of code:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
+
+extra_css:
+  - style.css
